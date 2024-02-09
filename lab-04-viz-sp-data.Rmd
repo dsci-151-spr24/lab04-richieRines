@@ -11,7 +11,7 @@ link-citations: true
 ---
 
 ```{r include = FALSE}
-knitr::opts_chunk$set(eval = FALSE)
+knitr::opts_chunk$set(eval = TRUE)
 ```
 
 ```{r fig.margin = TRUE, echo = FALSE}
@@ -93,9 +93,13 @@ Along with the name of the state we have the two-letter abbreviation and we have
     (Hint: Use inline R code and functions like `nrow` and `ncol` to compose your answer.) What does each row in the dataset represent?
     What are the variables?
 
+The Denny's dataset has `r nrow(dennys)` rows and `r ncol(dennys)` columns. Each one of these rows represents a single Denny's establishment. The variables consist of the address, city, state, zip code, longiude, and latitude of each establishment. 
+
 2.  What are the dimensions of the La Quinta's dataset?
     What does each row in the dataset represent?
     What are the variables?
+    
+The Laquinta dataset has `r nrow(laquinta)` rows and `r ncol(laquinta)` columns. Each one of these rows represents a single La Quinta establishment. The variables are: `r names(laquinta)`
 
 🧶 ✅ ⬆️ Knit, *commit, and push your changes to GitHub with an appropriate commit message. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards.*
 
@@ -161,7 +165,7 @@ Going forward we will work with the data from the United States only.
 All Denny's locations are in the United States, so we don't need to worry about them.
 However we do need to filter the La Quinta dataset for locations in United States.
 
-```{r}
+```{r eval = FALSE}
 laquinta <- laquinta %>%
   filter(country == "United States")
 ```
